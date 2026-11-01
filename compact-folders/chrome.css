@@ -1,0 +1,127 @@
+/* Compact Folders — puts closed folders side by side as icon-only tiles.
+ *
+ * - Closed folders (with no active tab inside) become small tiles that wrap in a row.
+ * - Opening a folder, or a folder that is showing its active tab, goes back to a
+ *   full-width row with its name so its tabs have room.
+ * - Only applies when the sidebar is expanded; compact mode is left alone.
+ */
+
+:root {
+  --cf-tile-width: 40px;   /* width of each folder tile */
+  --cf-tile-gap: 4px;      /* space between tiles */
+  --cf-tile-bg: color-mix(in srgb, currentColor 7%, transparent);
+}
+
+:root[zen-sidebar-expanded="true"] .zen-workspace-pinned-tabs-section {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  column-gap: var(--cf-tile-gap) !important;
+
+  /* Everything (pinned tabs, open folders, separator) keeps its own full row */
+  & > * {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Anchor for the hover name pill, so it can center across the whole sidebar */
+  position: relative !important;
+
+  & > zen-folder[collapsed]:not([has-active]) {
+    /* Hover name pill: sits just under the hovered tile's row */
+    &::after {
+      content: attr(label);
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: fit-content;
+      max-width: calc(100% - 16px);
+      margin-inline: auto;
+      margin-top: calc(var(--tab-margin-block) * 2 + var(--tab-min-height) + 4px);
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: light-dark(rgba(255, 255, 255, 0.95), rgba(30, 30, 30, 0.95));
+      color: light-dark(black, white);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transition-delay: 0.25s;
+    }
+
+    flex: 0 0 var(--cf-tile-width) !important;
+    width: var(--cf-tile-width) !important;
+    margin: 0 !important;
+    margin-block: 2px !important;
+
+    & > .tab-group-label-container {
+      padding: 0 !important;
+      justify-content: center !important;
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--cf-tile-bg);
+      }
+
+      /* Center the folder icon in the tile */
+      & .tab-group-folder-icon {
+        left: calc(50% - 14px) !important;
+      }
+
+      /* Hide the name but keep the label as the click target that toggles the folder */
+      & > label {
+        padding: 0 !important;
+        color: transparent !important;
+        -webkit-text-fill-color: transparent !important;
+        font-size: 0 !important;
+      }
+
+      & .tab-reset-button {
+        display: none !important;
+      }
+    }
+
+    & > .tab-group-container {
+      display: none !important;
+    }
+  }
+}
+
+/* ---------- Folder colors ----------
+ * Give a folder a color by matching its exact name (case-sensitive).
+ * If you rename a folder, update its name here too.
+ * Folders not listed keep the space's default color.
+ * Uncomment the examples below and change the names to match your folders.
+ */
+/* zen-folder[label="Work"]     { --cf-color: #4c8dff; } */
+/* zen-folder[label="Music"]    { --cf-color: #ff4d6d; } */
+/* zen-folder[label="Reading"]  { --cf-color: #f5b301; } */
+/* zen-folder[label="Games"]    { --cf-color: #9b5cff; } */
+/* zen-folder[label="Shopping"] { --cf-color: #ff8a3d; } */
+/* zen-folder[label="Finance"]  { --cf-color: #2ecc71; } */
+
+/* Apply --cf-color to the folder icon; folders without one keep Zen's default look */
+zen-folder {
+  --zen-folder-behind-bgcolor: var(--cf-color-behind, light-dark(color-mix(in srgb, var(--zen-primary-color) 60%, gray), color-mix(in srgb, var(--zen-primary-color) 60%, #c1c1c1))) !important;
+  --zen-folder-front-bgcolor: var(--cf-color, light-dark(color-mix(in srgb, var(--zen-primary-color), white 70%), color-mix(in srgb, var(--zen-primary-color), black 40%))) !important;
+  --zen-folder-stroke: var(--cf-color-stroke, light-dark(color-mix(in srgb, var(--zen-primary-color) 50%, black), color-mix(in srgb, var(--zen-colors-primary) 15%, #ebebeb))) !important;
+}
+zen-folder[label] {
+  --cf-color-behind: color-mix(in srgb, var(--cf-color) 70%, black);
+  --cf-color-stroke: color-mix(in srgb, var(--cf-color) 45%, black);
+}
