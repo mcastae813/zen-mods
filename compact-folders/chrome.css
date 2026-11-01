@@ -4,6 +4,9 @@
  * - Opening a folder, or a folder that is showing its active tab, goes back to a
  *   full-width row with its name so its tabs have room.
  * - Only applies when the sidebar is expanded; compact mode is left alone.
+ *
+ * Made with Claude Opus (Anthropic's AI model).
+ * https://github.com/mcastae813/zen-mods
  */
 
 :root {

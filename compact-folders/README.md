@@ -29,4 +29,12 @@ Names are case-sensitive. If you rename a folder, update it here too. Folders no
 
 ## Install
 
-See [Installing a mod](../README.md#installing-a-mod).
+Download `compact-folders.css` from the [latest release](https://github.com/mcastae813/zen-mods/releases), or use `chrome.css` from this folder, then follow [Installing a mod](../README.md#installing-a-mod).
+
+## Known issues
+
+- The layout misbehaves when several open folders sit next to closed ones.
+
+---
+
+Made with Claude Opus, Anthropic's AI model.

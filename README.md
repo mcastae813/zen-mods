@@ -2,6 +2,8 @@
 
 CSS mods for [Zen Browser](https://zen-browser.app/).
 
+> **Disclaimer:** everything in this repo was made with Claude Opus, Anthropic's AI model.
+
 | Mod | What it does |
 | --- | --- |
 | [Compact Folders](compact-folders/) | Closed sidebar folders become small icon tiles that sit side by side. Hover a tile to see its name. |
