@@ -2,6 +2,10 @@
 
 Hides chosen spaces from the spaces strip at the bottom of Zen's sidebar, without deleting them.
 
+| A hidden space | Holding the mouse on the strip |
+| --- | --- |
+| ![Spaces strip with one space hidden](hidden.png) | ![The hidden space ".AA" slides back in](hover.png) |
+
 - Rename a space so its name starts with `.` and its icon leaves the strip. Example: `Personal` → `.Personal` (right-click the space icon → **Edit Space**). Works right away, no restart. Rename it back to unhide it.
 - The active space is never hidden, so the icon of a hidden space still shows while you're in it.
 - Hold the mouse on the strip for a moment and the hidden spaces slide in, so you can click or right-click them. Move the mouse away and they're gone again.

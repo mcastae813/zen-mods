@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/mcastae813/zen-mods/tree/main/hide-spaces",
   "readme": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/hide-spaces/README.md",
-  "image": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/hide-spaces/image.png",
+  "image": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/hide-spaces/hover.png",
   "style": {
     "chrome": "chrome.css"
   },
