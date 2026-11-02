@@ -1,0 +1,18 @@
+{
+  "id": "compact-folders",
+  "name": "Compact Folders",
+  "description": "Closed sidebar folders become small icon tiles side by side. Hover a tile to see its name.",
+  "author": "mcastae813",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mcastae813/zen-mods/tree/main/compact-folders",
+  "readme": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/compact-folders/README.md",
+  "image": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/compact-folders/image.png",
+  "style": {
+    "chrome": "chrome.css"
+  },
+  "tags": ["folders", "sidebar", "compact", "pinned-tabs"],
+  "fork": ["zen"],
+  "ai": "yes",
+  "createdAt": "2026-11-01",
+  "updatedAt": "2026-11-01"
+}

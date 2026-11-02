@@ -1,0 +1,18 @@
+{
+  "id": "hide-spaces",
+  "name": "Hide Spaces",
+  "description": "Spaces named with a leading \".\" leave the spaces strip. Hold the mouse on it to reveal them.",
+  "author": "mcastae813",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mcastae813/zen-mods/tree/main/hide-spaces",
+  "readme": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/hide-spaces/README.md",
+  "image": "https://raw.githubusercontent.com/mcastae813/zen-mods/main/hide-spaces/image.png",
+  "style": {
+    "chrome": "chrome.css"
+  },
+  "tags": ["workspaces", "spaces", "sidebar", "minimal"],
+  "fork": ["zen"],
+  "ai": "yes",
+  "createdAt": "2026-11-02",
+  "updatedAt": "2026-11-02"
+}
