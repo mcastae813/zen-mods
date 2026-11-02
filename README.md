@@ -23,3 +23,9 @@ CSS mods for [Zen Browser](https://zen-browser.app/).
 5. Restart Zen.
 
 If nothing changes, open `about:config`, set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`, and restart again.
+
+## License
+
+[MIT](LICENSE). Use, copy, modify, share or sell these mods however you like, no permission needed.
+
+The mods are provided **as is**, with no warranty of any kind. Use them at your own risk: the author is not responsible for anything that happens from using them, including a broken Zen layout after an update.
