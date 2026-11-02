@@ -31,7 +31,7 @@ Names are case-sensitive. This way needs a full Zen restart after each change.
 
 ## Install
 
-Use `chrome.css` from this folder, then follow [Installing a mod](../README.md#installing-a-mod) (name it e.g. `hide-spaces.css`).
+Download `hide-spaces.css` from the [latest release](https://github.com/mcastae813/zen-mods/releases), or use `chrome.css` from this folder, then follow [Installing a mod](../README.md#installing-a-mod).
 
 ## Notes
 
