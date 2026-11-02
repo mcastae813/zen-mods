@@ -1,0 +1,55 @@
+/* Hide Spaces — hides chosen spaces from the spaces strip (bottom of the sidebar).
+ *
+ * To hide a space: rename it so its name starts with "." (right-click its icon in the
+ * strip → "Edit Space"). Example: "Personal" → ".Personal". Works at once, no
+ * restart. Rename it back to unhide it.
+ * Or list exact names in the :is(...) block below (that needs a full Zen quit + reopen).
+ *
+ * - The active space is never hidden: Ctrl+Alt+Right / Ctrl+Alt+Left still cycle through
+ *   every space, hidden ones included, and the icon of a hidden space shows while you are in it.
+ * - Hold the mouse on the strip for --hs-reveal-delay and the hidden spaces slide in so you
+ *   can click or right-click them. Move the mouse away and they are gone again.
+ * - Only the strip changes: tabs, sync, shortcuts, swipe gestures and "Manage Spaces…" still
+ *   see every space.
+ *
+ * userChrome.css is a user-level sheet: anything that must beat Zen's own CSS (author level)
+ * needs !important, including the transition.
+ *
+ * Made with Claude Opus (Anthropic's AI model).
+ * https://github.com/mcastae813/zen-mods
+ */
+
+:root {
+  --hs-reveal-delay: 1s;      /* how long to hold the mouse on the strip; 999s = never reveal */
+  --hs-button-size: 30px;     /* Zen's space-button size on Windows/Linux (32px on macOS) */
+}
+
+#zen-workspaces-button
+  toolbarbutton.subviewbutton.toolbarbutton-1[zen-workspace-id]:is(
+    [tooltiptext^="."]            /* any space whose name starts with "." */
+    /* , [tooltiptext="Personal"]   exact names go here, one per line, comma first */
+  ):not([active="true"]) {
+
+  /* Mouse not on the strip: the space is gone (and zero-sized in case something forces it visible) */
+  display: none !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+
+  /* Mouse on the strip: rendered, but kept at zero size until the delay has passed */
+  &:is(#zen-workspaces-button:hover toolbarbutton) {
+    display: flex !important;
+    max-width: var(--hs-button-size) !important;
+    max-height: var(--hs-button-size) !important;
+    transition:
+      max-width 0.25s ease var(--hs-reveal-delay),
+      max-height 0.25s ease var(--hs-reveal-delay),
+      filter 0.2s,
+      opacity 0.2s !important;
+
+    @starting-style {
+      max-width: 0 !important;
+      max-height: 0 !important;
+    }
+  }
+}

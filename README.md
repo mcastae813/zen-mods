@@ -7,6 +7,7 @@ CSS mods for [Zen Browser](https://zen-browser.app/).
 | Mod | What it does |
 | --- | --- |
 | [Compact Folders](compact-folders/) | Closed sidebar folders become small icon tiles that sit side by side. Hover a tile to see its name. |
+| [Hide Spaces](hide-spaces/) | Spaces whose name starts with `.` leave the spaces strip. Hold the mouse on the strip to bring them back. |
 
 ## Installing a mod
 
