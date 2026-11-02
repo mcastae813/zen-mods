@@ -2,6 +2,8 @@
 
 Turns closed folders in Zen's sidebar into small icon-only tiles that wrap side by side, so a stack of folders takes a row or two instead of a whole column.
 
+![Two closed folders shown as icon tiles side by side](tiles.png)
+
 - Closed folders (with no active tab inside) become small tiles in a row.
 - Hovering a tile shows the folder's name in a pill under it.
 - Opening a folder, or a folder that holds the active tab, goes back to a full-width row so its tabs have room.
